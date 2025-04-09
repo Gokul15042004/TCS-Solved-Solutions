@@ -1,0 +1,29 @@
+import java.util.Scanner;
+class Bus_Stops{
+	public void source_destination(){
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the value: ");
+	String a=sc.nextLine().toUpperCase();
+	String b=sc.nextLine().toUpperCase();
+	int Path[]={800, 600, 750, 900, 1400, 1200, 1100, 1500};
+	String BusStops[]={"TH","GA","IC","HA","TE","LU","NI","CA"};
+	int source=-1,distance=0,destination=0;
+	int n=BusStops.length-1;
+	for(int i=0;i<=n;i++){
+	if(a.equals(BusStops[i])){
+	source=i;
+	break;
+         }
+       }
+	while((!BusStops[source].equals(b)) && destination < n){
+	 source =(source+1)%(n+1);
+ 	 distance=distance+Path[source];
+	 destination++;
+          }
+	System.out.println(Math.round((float)(distance*5)/1000) + " INR ");
+      }  
+	public static void main(String[] args){
+	Bus_Stops bs=new Bus_Stops();
+	bs.source_destination();
+	}
+      }
